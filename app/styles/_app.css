@@ -1,0 +1,36 @@
+/* If you change this or the tailwind.config.js, you need to rerun yarn styles:build */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav.app a.active {
+  @apply text-white bg-gray-900;
+}
+/* nav.app a.active:focus {
+  @apply bg-gray-700;
+} */
+nav.app a:not(.active) {
+  @apply text-gray-300;
+}
+nav.app a:hover:not(.active) {
+  @apply text-white bg-gray-700;
+}
+/* nav.app a:focus:not(.active) {
+  @apply text-white bg-gray-700;
+} */
+
+pre[class*="language-"] {
+  @apply p-0 m-0 mt-2 text-xs bg-transparent;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply bg-transparent;
+}
+
+.CodeMirror {
+  @apply block w-full h-full text-sm leading-5 transition duration-150 ease-in-out form-textarea cursor-text;
+}

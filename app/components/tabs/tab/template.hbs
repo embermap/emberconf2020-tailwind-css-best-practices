@@ -1,0 +1,10 @@
+<button
+  {{did-insert (fn @didInsert this.id)}}
+  class="mr-4 text-sm font-medium focus:outline-none
+    {{if this.isActive "text-gray-700" "text-gray-400 hover:text-gray-900"}}
+  "
+  type="button"
+  {{on "click" this.handleClick}}
+>
+  {{yield}}
+</button>

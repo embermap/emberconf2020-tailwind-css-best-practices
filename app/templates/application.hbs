@@ -1,0 +1,130 @@
+<div
+  class="flex h-screen overflow-hidden antialiased"
+>
+  {{! Off-canvas menu }}
+  <div class="">
+    <button type='button'
+      {{on 'click' this.toggleSidebarIsOpen}}
+      class="
+        fixed w-full inset-0 z-30 transition-opacity duration-300 ease-linear bg-gray-600 
+        {{if this.sidebarIsOpen 'opacity-75 pointer-events-auto' 'opacity-0 pointer-events-none'}}
+      "
+    ></button>
+    <div
+      class="
+        fixed inset-y-0 left-0 z-40 flex flex-col w-full max-w-xs duration-300 ease-in-out transform  bg-gray-800
+        {{if this.sidebarIsOpen 'translate-x-0' '-translate-x-full'}}
+      "
+    >
+      <div class="absolute top-0 right-0 p-1 -mr-14">
+        {{#if this.sidebarIsOpen}}
+          <button
+            {{on 'click' this.toggleSidebarIsOpen}}
+            type="button"
+            class="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
+          >
+            <svg
+              class="w-6 h-6 text-white"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        {{/if}}
+      </div>
+      <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+        <div class="flex items-center flex-shrink-0 px-4">
+          <p class="text-xl font-semibold text-white">
+            Tailwind CSS Best Practices
+          </p>
+        </div>
+        <nav class="px-2 mt-5 app">
+          {{#each (range 1 this.exercisesCount true) as |exerciseNumber|}}
+            <LinkTo 
+              @route="exercise"
+              @model={{concat 'exercise-' exerciseNumber}}
+              {{on 'click' this.toggleSidebarIsOpen}}
+              class="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-white transition duration-150 ease-in-out rounded-md group focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6 mr-4 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10M9 21h6"
+                ></path>
+              </svg>
+              Exercise {{exerciseNumber}}
+            </LinkTo>
+          {{/each}}
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col flex-1 w-0 overflow-hidden">
+    <div class="flex items-center text-xs font-medium text-gray-500 bg-gray-100 border-b ">
+      <button
+        type="button"
+        {{on 'click' this.toggleSidebarIsOpen}}
+        class="inline-flex items-center justify-center px-2 py-0.5 m-1 transition duration-150 ease-in-out rounded-md hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus:bg-gray-200"
+      >
+        <svg
+          class="w-4 h-4 mr-1"
+          stroke="currentColor"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+        Exercises
+      </button>
+      <button {{on 'click' this.transitionToPreviousExercise}}
+        class='
+          focus:outline-none px-1 py-0.5 rounded-md
+          {{if (not this.previousExercise) 'opacity-50 pointer-events-none' 'hover:bg-gray-200 hover:text-gray-900 '}}
+        '
+        type='button'
+        disabled={{not this.previousExercise}}
+      >
+        <svg class='h-4' viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+      </button>
+      <p class='w-4 text-center py-0.5'>
+        {{this.currentExercise}}
+      </p>
+      <button {{on 'click' this.transitionToNextExercise}} 
+        class='
+          focus:outline-none px-1 py-0.5 rounded-md
+          {{if (not this.nextExercise) 'opacity-50 pointer-events-none' 'hover:bg-gray-200 hover:text-gray-900 '}}
+        '
+        type='button'
+        disabled={{not this.nextExercise}}
+      >
+        <svg class='h-4' viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <main
+      class="relative z-0 flex flex-1 overflow-y-auto focus:outline-none"
+      tabindex="0"
+    >
+      {{outlet}}
+    </main>
+  </div>
+</div>

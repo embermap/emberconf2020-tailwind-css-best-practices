@@ -1,0 +1,11 @@
+{{yield (hash
+  Tab=(component 'tabs/tab'
+    activeTabId=this.activeTabId
+    didInsert=(fn this.registerTab)
+    handleClick=(fn this.setActiveTab)
+  )
+  Panel=(component 'tabs/panel' 
+    didInsert=(fn this.registerPanel)
+    activePanelId=this.activePanelId
+  )
+)}}
