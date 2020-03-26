@@ -1,3 +1,12 @@
-{{#if this.show}}
-  hi hey htere {{@model.exerciseSlug}}
-{{/if}}
+<div class="flex h-full -mx-1 bg-gray-100">
+  <div class="w-1/2 h-full px-1">
+    <div class="h-full overflow-y-auto bg-white">
+      {{component (concat "exercises/exercise-" @model.exerciseNumber)}}
+    </div>
+  </div>
+  <div class="w-1/2 h-full px-1">
+    <div class="h-full overflow-y-auto bg-white">
+      {{component (concat "solutions/solution-" @model.exerciseNumber)}}
+    </div>
+  </div>
+</div>
