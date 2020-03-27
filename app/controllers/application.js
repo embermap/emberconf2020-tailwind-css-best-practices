@@ -2,14 +2,12 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
-// import exercises from "../exercises";
-let exercises = [1, 2, 3];
 
 export default class ApplicationController extends Controller {
   @service router;
   @tracked sidebarIsOpen;
 
-  exercisesCount = exercises.length;
+  exercisesCount = 12;
 
   get currentExercise() {
     let slug = this.router.currentRoute.parent.params.exercise_slug;
@@ -22,7 +20,7 @@ export default class ApplicationController extends Controller {
   }
 
   get nextExercise() {
-    return +this.currentExercise < exercises.length
+    return +this.currentExercise < this.exercisesCount
       ? +this.currentExercise + 1
       : null;
   }

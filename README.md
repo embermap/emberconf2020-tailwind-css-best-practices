@@ -41,7 +41,7 @@ Assume already familiar with tailwind. We'll do a quick overview
 - Pseudo states
 - Responsive design
 
-## 2: Composing with components
+## 2: Extract components, not classes
 
 Padding trick for fixed aspect ratio.
 
@@ -54,7 +54,11 @@ Padding trick for fixed aspect ratio.
 </div>
 ```
 
-How to think about abstracting + sharing? Might reach for @apply. Instead, use components.
+How to think about abstracting + sharing? Might reach for @apply.
+
+Problem is you still have to duplicate html structure. Need a wrapper + child. Other problme is you have to go to css file and break html-first workflow.
+
+Instead, use components.
 
 ```hbs
 <AspectRatio @ratio='16:9'>
@@ -72,12 +76,20 @@ Our styles are stomping each other. We need to think of an API that's Tailwind-f
 
 What we really want is `<Link class='' @activeClass='' @inactiveClass=''>`. Let's make it work.
 
+## 4: Layout with Flexbox
+
+Old school button group here. Buttons are foated left, parent is inline-block. How to center?
+
+Use text-center.
+
+This is weird - we're using `text-align: center` to lay out a component?
+
+With Tailwind + modern css you'll get very familiar with flexbox. Its great because it works in many more contexts and you usually don't need to worry about whether the child you're laying out is block or inline. The layout is kept more separate from the thing you're laying out. Also floats are super weird. Also the height of our group is different from the buttons – because of line-height. Again, inline elements are kinda weird.
+
 ---
 
 - Rely on the default theme, extend as necessary
   - stick with Tailwind's scales to make your extensions predictable
-- Tailwind-friendly component APIs
-  - <LinkTo @activeClass=''>. But what about @inactiveClass? Show why you want this.
 - Flexbox for layout
   - Use cases
   - Negative margin for gaps
@@ -85,12 +97,13 @@ What we really want is `<Link class='' @activeClass='' @inactiveClass=''>`. Let'
 - Grid for layout
   - Use cases
 - Grid + flex layout combo (<List />)
+- Styling form inputs with Form plugin
 - px() function for fontSize
 - New line-height pixel values instead of 1.5
 - Writing a plugin to link letter-spacing and text-size
 - <Text /> component with built-in measure (max-width). Must use something like flex parent to lay out.
 - SVG example (maybe tui toggle)
-- Form plugin
+- Markdown example? postcss-nested
 - Max width + grid vs. weird width values (`xxl:w-440` from embermap)
   - The default values are extremely well thought out. Try to embrace them.
 - Escape hatches, e.g. css modules
