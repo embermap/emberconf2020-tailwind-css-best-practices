@@ -1,12 +1,16 @@
 <div class="flex h-full -mx-1 bg-gray-100">
   <div class="w-1/2 h-full px-1">
     <div class="h-full overflow-y-auto bg-white">
-      {{component (concat "exercises/exercise-" @model.exerciseNumber)}}
+      {{component
+        (concat "exercises/exercise-" @model.exerciseNumber "/exercise")
+      }}
     </div>
   </div>
   <div class="w-1/2 h-full px-1">
     <div class="h-full overflow-y-auto bg-white">
-      {{component (concat "solutions/solution-" @model.exerciseNumber)}}
+      {{component
+        (concat "exercises/exercise-" @model.exerciseNumber "/solution")
+      }}
     </div>
   </div>
 </div>

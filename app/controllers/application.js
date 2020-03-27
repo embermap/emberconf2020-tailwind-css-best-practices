@@ -12,7 +12,7 @@ export default class ApplicationController extends Controller {
   exercisesCount = exercises.length;
 
   get currentExercise() {
-    let slug = this.router.currentRoute.params.exercise_slug;
+    let slug = this.router.currentRoute.parent.params.exercise_slug;
 
     return slug.replace("exercise-", "");
   }

@@ -28,15 +28,54 @@ ember s
 
 ## Intro
 
-- 1: Basic Tailwind
-  - Style a blog post
+Assume already familiar with tailwind. We'll do a quick overview
+
+## Useful VSCode plugins
+
+- Tailwind intellisense
+- Headwind
+
+## 1: Basic Tailwind
+
+- Style a blog post
+- Pseudo states
+- Responsive design
+
+## 2: Composing with components
+
+Padding trick for fixed aspect ratio.
+
+```hbs
+<div class="relative bg-red-500 pb-2/3">
+  <img
+    class="absolute object-cover w-full h-full"
+    src="https://source.unsplash.com/_Dogn_h7Qek"
+  />
+</div>
+```
+
+How to think about abstracting + sharing? Might reach for @apply. Instead, use components.
+
+```hbs
+<AspectRatio @ratio='16:9'>
+  <img>
+</AspectRatio>
+```
+
+This is going to be a theme of this training. Components like this keep us in the html. That should be a goal with the abstractions you make: html-first workflow. Keeps you productive.
+
+## 3: Tailwind-friendly Component APIs
+
+`<Link>` takes activeClass arg. Let's make it work.
+
+Our styles are stomping each other. We need to think of an API that's Tailwind-friendly.
+
+What we really want is `<Link class='' @activeClass='' @inactiveClass=''>`. Let's make it work.
 
 ---
 
-- Components over @apply
 - Rely on the default theme, extend as necessary
   - stick with Tailwind's scales to make your extensions predictable
-- <AspectRatio @ratio={{16/9}} />
 - Tailwind-friendly component APIs
   - <LinkTo @activeClass=''>. But what about @inactiveClass? Show why you want this.
 - Flexbox for layout
