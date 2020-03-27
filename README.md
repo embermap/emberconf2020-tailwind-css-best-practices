@@ -92,6 +92,10 @@ With Tailwind + modern css you'll get very familiar with flexbox. Its great beca
 
 Match the layout on the right. Notice the behavior if you shrink the viewport. You'll need to look up the "Flex Shrink" utilities on tailwindcss.com.
 
+## 6: More layout - measured text
+
+Try to encapsulate the measured text in a component. Notice how you can lay it out with flexbox.
+
 ---
 
 - Rely on the default theme, extend as necessary
