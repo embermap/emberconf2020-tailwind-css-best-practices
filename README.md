@@ -86,6 +86,12 @@ This is weird - we're using `text-align: center` to lay out a component?
 
 With Tailwind + modern css you'll get very familiar with flexbox. Its great because it works in many more contexts and you usually don't need to worry about whether the child you're laying out is block or inline. The layout is kept more separate from the thing you're laying out. Also floats are super weird. Also the height of our group is different from the buttons – because of line-height. Again, inline elements are kinda weird.
 
+[ **Exercise**: Once you have it using flexbox, copy + paste the button group so there are two. Play with the justify-* classes on the parent. ]
+
+## 5: Exercise: Practice Layout with Flexbox
+
+Match the layout on the right. Notice the behavior if you shrink the viewport. You'll need to look up the "Flex Shrink" utilities on tailwindcss.com.
+
 ---
 
 - Rely on the default theme, extend as necessary
