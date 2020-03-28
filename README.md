@@ -96,6 +96,14 @@ Match the layout on the right. Notice the behavior if you shrink the viewport. Y
 
 Try to encapsulate the measured text in a component. Notice how you can lay it out with flexbox.
 
+## 7: Layout with Grid
+
+Build with flexbox first. Then refactor to grid.
+
+Grid is amazing. Gap is amazing.
+
+## 8: Exercise: Practice with Grid
+
 ---
 
 - Rely on the default theme, extend as necessary

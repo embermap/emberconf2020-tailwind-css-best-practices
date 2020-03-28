@@ -1,0 +1,37 @@
+<!--
+  Add grid on lg: screen. Hint: it's a three-column grid.
+
+  Look up "Grid Column Start / End" in Tailwind docs
+-->
+
+<div class="h-full p-8 bg-gray-50">
+  <div class="overflow-hidden bg-white shadow lg:rounded-lg">
+    <div class="px-4 py-5 border-b border-gray-200 lg:px-6">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">
+        Applicant Information
+      </h3>
+      <p class="max-w-2xl mt-1 text-sm leading-5 text-gray-500">
+        Personal details and application.
+      </p>
+    </div>
+    <div class="px-4 py-5 lg:p-0">
+      <dl>
+        {{#each items as |item index|}}
+          <div
+            class="lg:px-6 lg:py-5
+
+
+              {{if (gt index 0) "mt-8 lg:mt-0 lg:border-t lg:border-gray-200"}}"
+          >
+            <dt class="text-sm font-medium leading-5 text-gray-500">
+              {{item.title}}
+            </dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900 lg:mt-0">
+              {{item.data}}
+            </dd>
+          </div>
+        {{/each}}
+      </dl>
+    </div>
+  </div>
+</div>
