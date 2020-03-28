@@ -104,6 +104,18 @@ Grid is amazing. Gap is amazing.
 
 ## 8: Exercise: Practice with Grid
 
+## 9: Working with SVG
+
+## 10: Writing a plugin to match letter spacing, font size and line height
+
+## 11: Form styling library
+
+## 12: Key-focus polyfill
+
+## 13: Responsive designs for very different layouts
+
+Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
+
 ---
 
 - Rely on the default theme, extend as necessary
