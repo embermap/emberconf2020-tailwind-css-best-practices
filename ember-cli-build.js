@@ -12,7 +12,10 @@ module.exports = function(defaults) {
     postcssOptions: {
       compile: {
         enabled: true,
-        plugins: [require("tailwindcss")("./app/styles/tailwind.config.js")],
+        plugins: [
+          require("tailwindcss")("./app/styles/tailwind.config.js"),
+          require("autoprefixer")
+        ],
         cacheExclude: [],
         cacheInclude: [/.*\.(css|scss)$/, /.tailwind\.config\.js$/]
       }

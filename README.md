@@ -114,11 +114,18 @@ Copy svgs in, get rid of hard-coded widths and heights. Set fill or stroke to cu
 
 ## 11: Form styling library
 
-## 13: Writing a plugin to match letter spacing, font size and line height
+Forms by default aren't very "utility-friendly". There's also lots of inconsistencies across browsers.
 
-## 14: Key-focus polyfill
+The Custom forms plugin smoothes these out. Let's see how it works.
 
-## 15: Responsive designs for very different layouts
+- https://github.com/tailwindcss/custom-forms
+- Make sure you have autoprefixer
+
+## 12: Writing a plugin to match letter spacing, font size and line height
+
+## 13: Key-focus polyfill
+
+## 14: Responsive designs for very different layouts
 
 Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
 
