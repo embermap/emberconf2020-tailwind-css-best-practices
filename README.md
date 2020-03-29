@@ -106,13 +106,19 @@ Grid is amazing. Gap is amazing.
 
 ## 9: Working with SVG
 
-## 10: Writing a plugin to match letter spacing, font size and line height
+Copy svgs in, get rid of hard-coded widths and heights. Set fill or stroke to currentColor.
+
+## 10: Exercise: Practice with SVG
+
+Copy svgs in, get rid of hard-coded widths and heights. Set fill or stroke to currentColor.
 
 ## 11: Form styling library
 
-## 12: Key-focus polyfill
+## 13: Writing a plugin to match letter spacing, font size and line height
 
-## 13: Responsive designs for very different layouts
+## 14: Key-focus polyfill
+
+## 15: Responsive designs for very different layouts
 
 Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
 
@@ -140,3 +146,7 @@ Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
 - key-focus polyfill
 - When layouts are extremely different at responsive breakpoints, just make a new block and hide with `sm:hidden`. No reason to overcomplicate the HTML just because the content is the same. Duplicating content is way simpler than making one single uber-layout.
   - Also, don't use JS to change layout based on viewport size => not SSR-able. Stick with css media queries.
+
+## Resources
+
+- Free SVG icons: https://heroicons.dev/
