@@ -123,36 +123,43 @@ The Custom forms plugin smoothes these out. Let's see how it works.
 
 ## 12: Writing a plugin to match letter spacing, font size and line height
 
+Import plugin
+
+```js
+const plugin = require("tailwindcss/plugin");
+```
+
+Then add your own utilities with an inline plugin:
+
+```js
+plugins: [
+  plugin(function({ addUtilities, theme }) {
+    const fontSizes = theme("fontSize", {});
+
+    Object.keys(fontSizes).forEach(key => {
+      let fontSize = fontSizes[key];
+      let pixels = +fontSize.replace("rem", "") * 16;
+      let tracking = -0.0223 + 0.185 * Math.exp(-0.1745 * pixels);
+
+      addUtilities(
+        {
+          [`.text-${key}`]: {
+            "font-size": fontSize,
+            "letter-spacing": `${tracking}rem`
+          }
+        },
+        ["responsive"]
+      );
+    });
+  })
+];
+```
+
 ## 13: Key-focus polyfill
 
 ## 14: Responsive designs for very different layouts
 
 Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
-
----
-
-- Rely on the default theme, extend as necessary
-  - stick with Tailwind's scales to make your extensions predictable
-- Flexbox for layout
-  - Use cases
-  - Negative margin for gaps
-  - Negative margin to remove outer space on list of pills so they can wrap
-- Grid for layout
-  - Use cases
-- Grid + flex layout combo (<List />)
-- Styling form inputs with Form plugin
-- px() function for fontSize
-- New line-height pixel values instead of 1.5
-- Writing a plugin to link letter-spacing and text-size
-- <Text /> component with built-in measure (max-width). Must use something like flex parent to lay out.
-- SVG example (maybe tui toggle)
-- Markdown example? postcss-nested
-- Max width + grid vs. weird width values (`xxl:w-440` from embermap)
-  - The default values are extremely well thought out. Try to embrace them.
-- Escape hatches, e.g. css modules
-- key-focus polyfill
-- When layouts are extremely different at responsive breakpoints, just make a new block and hide with `sm:hidden`. No reason to overcomplicate the HTML just because the content is the same. Duplicating content is way simpler than making one single uber-layout.
-  - Also, don't use JS to change layout based on viewport size => not SSR-able. Stick with css media queries.
 
 ## Resources
 

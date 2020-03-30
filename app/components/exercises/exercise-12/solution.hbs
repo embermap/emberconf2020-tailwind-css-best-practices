@@ -1,0 +1,86 @@
+<!--
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
+
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans]
+      }
+    }
+  },
+  variants: {},
+  corePlugins: {
+    fontSize: false
+  },
+  plugins: [
+    require("@tailwindcss/ui"),
+    plugin(function({ addUtilities, theme }) {
+      const fontSizes = theme("fontSize", {});
+
+      console.log(fontSizes);
+      Object.keys(fontSizes).forEach(key => {
+        let fontSize = fontSizes[key];
+        let pixels = +fontSize.replace("rem", "") * 16;
+        let tracking = -0.0223 + 0.185 * Math.exp(-0.1745 * pixels);
+
+        addUtilities(
+          {
+            [`.text-${key}`]: {
+              "font-size": fontSize,
+              "letter-spacing": `${tracking}rem`
+            }
+          },
+          ["responsive"]
+        );
+      });
+    })
+  ]
+};
+
+
+ -->
+
+<div class="p-6">
+  <p class="mt-4 text-xs">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-sm">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-base">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-lg">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-2xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-3xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-4xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-5xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+
+  <p class="mt-4 text-6xl">
+    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+  </p>
+</div>
