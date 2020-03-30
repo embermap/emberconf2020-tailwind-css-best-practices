@@ -155,7 +155,35 @@ plugins: [
 ];
 ```
 
-## 13: Key-focus polyfill
+## 13: Focus-visible polyfill
+
+Polyfill: https://github.com/WICG/focus-visible
+
+Download & import the polyfill
+
+Write the plugin.
+
+```js
+plugin(function({ addVariant, e }) {
+  addVariant("focus-visible", ({ modifySelectors, separator }) => {
+    modifySelectors(({ className }) => {
+      return `.${e(
+        `focus-visible${separator}${className}`
+      )}[data-focus-visible-added]`;
+    });
+  });
+});
+```
+
+Add the `focus-visible` variant to the relevant plugins:
+
+```js
+variants: {
+  borderColor: ["responsive", "hover", "focus", "focus-visible"],
+  boxShadow: ["responsive", "hover", "focus", "focus-visible"],
+  zIndex: ["responsive", "focus", "focus-visible"]
+},
+```
 
 ## 14: Responsive designs for very different layouts
 

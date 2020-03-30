@@ -24,10 +24,7 @@ module.exports = function(defaults) {
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
-  app.import("node_modules/codemirror/lib/codemirror.js");
-  app.import("node_modules/codemirror/lib/codemirror.css");
-  app.import("node_modules/codemirror/mode/javascript/javascript.js");
-  app.import("node_modules/codemirror/addon/edit/closebrackets.js");
+  app.import("node_modules/focus-visible/dist/focus-visible.min.js");
   //
   // If you need to use different assets in different
   // environments, specify an object as the first parameter. That
