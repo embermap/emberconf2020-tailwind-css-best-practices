@@ -187,8 +187,14 @@ variants: {
 
 ## 14: Responsive designs for very different layouts
 
+Finishing off with a hard lesson learned.
+
+First, if a layout is very different between two breakpoints, just split it up.
+
 Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
 
 ## Resources
 
-- Free SVG icons: https://heroicons.dev/
+- [Tailwind Custom forms plugin](https://github.com/tailwindcss/custom-forms)
+- [Heroicons: Free SVG icons](https://heroicons.dev/)
+- [Focus-visible polyfill](https://github.com/WICG/focus-visible)

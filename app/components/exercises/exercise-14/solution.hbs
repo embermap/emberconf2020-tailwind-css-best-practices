@@ -1,22 +1,82 @@
-<div class="flex justify-center pt-8">
-  <span class="relative z-0 inline-flex rounded-md shadow-sm">
-    <button
-      type="button"
-      class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-    >
-      Years
-    </button>
-    <button
-      type="button"
-      class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-    >
-      Months
-    </button>
-    <button
-      type="button"
-      class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-    >
-      Days
-    </button>
-  </span>
+<div class="min-h-screen bg-white">
+  <nav class="bg-white border-b border-gray-200">
+    <div class="px-4 mx-auto max-w-7xl md:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <!-- Desktop menu -->
+          <div class="hidden -ml-8 md:-my-px md:flex">
+            {{#each this.links as |link|}}
+              <a
+                href="#"
+                class="inline-flex items-center px-1 pt-1 ml-8 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+              >
+                {{link}}
+              </a>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="flex items-center -mr-2 md:hidden">
+          <button
+            class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
+            {{on "click" this.toggleIsOpen}}
+          >
+            <svg
+              class="w-6 h-6"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="{{if this.isOpen "hidden" "inline-flex"}}"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+              <path
+                class="{{if this.isOpen "inline-flex" "hidden"}}"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="{{if this.isOpen "block" "hidden"}} md:hidden">
+      <div class="pt-2 pb-3">
+        {{#each this.links as |link|}}
+          <a
+            href="#"
+            class="block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300"
+          >
+            {{link}}
+          </a>
+        {{/each}}
+      </div>
+    </div>
+  </nav>
+
+  <div class="py-10">
+    <header>
+      <div class="px-4 mx-auto max-w-7xl md:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold leading-tight text-gray-900">
+          Dashboard
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
+        <div class="px-4 py-8 md:px-0">
+          <div
+            class="border-4 border-gray-200 border-dashed rounded-lg h-96"
+          ></div>
+        </div>
+      </div>
+    </main>
+  </div>
 </div>
