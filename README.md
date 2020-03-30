@@ -28,12 +28,12 @@ ember s
 
 ## Intro
 
-Assume already familiar with tailwind. We'll do a quick overview
+Quick overview.
 
-## Useful VSCode plugins
+Some useful VSCode plugins:
 
-- Tailwind intellisense
-- Headwind
+- [Tailwind CSS IntelliSense for VS Code](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Headwind for VS Code](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind)
 
 ## 1: Basic Tailwind
 
@@ -121,45 +121,17 @@ The Custom forms plugin smoothes these out. Let's see how it works.
 - https://github.com/tailwindcss/custom-forms
 - Make sure you have autoprefixer
 
-## 12: Writing a plugin to match letter spacing, font size and line height
-
-Import plugin
-
-```js
-const plugin = require("tailwindcss/plugin");
-```
-
-Then add your own utilities with an inline plugin:
-
-```js
-plugins: [
-  plugin(function({ addUtilities, theme }) {
-    const fontSizes = theme("fontSize", {});
-
-    Object.keys(fontSizes).forEach(key => {
-      let fontSize = fontSizes[key];
-      let pixels = +fontSize.replace("rem", "") * 16;
-      let tracking = -0.0223 + 0.185 * Math.exp(-0.1745 * pixels);
-
-      addUtilities(
-        {
-          [`.text-${key}`]: {
-            "font-size": fontSize,
-            "letter-spacing": `${tracking}rem`
-          }
-        },
-        ["responsive"]
-      );
-    });
-  })
-];
-```
-
-## 13: Focus-visible polyfill
+## 12: Writing a plugin for focus-visible
 
 Polyfill: https://github.com/WICG/focus-visible
 
 Download & import the polyfill
+
+Impot `plugin` from Tailwind:
+
+```js
+const plugin = require("tailwindcss/plugin");
+```
 
 Write the plugin.
 
@@ -185,7 +157,7 @@ variants: {
 },
 ```
 
-## 14: Responsive designs for very different layouts
+## 13: Responsive designs for very different layouts
 
 Finishing off with a hard lesson learned.
 
@@ -195,6 +167,10 @@ Avoid JS device viewport width. Use CSS media queries. Robust to SSR.
 
 ## Resources
 
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind CSS IntelliSense for VS Code](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Headwind for VS Code](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind)
 - [Tailwind Custom forms plugin](https://github.com/tailwindcss/custom-forms)
 - [Heroicons: Free SVG icons](https://heroicons.dev/)
 - [Focus-visible polyfill](https://github.com/WICG/focus-visible)
+- [Tailwind UI](https://tailwindui.com)
