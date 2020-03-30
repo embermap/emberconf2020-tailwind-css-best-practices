@@ -1,86 +1,22 @@
-<!--
-
-const defaultTheme = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
-
-module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans]
-      }
-    }
-  },
-  variants: {},
-  corePlugins: {
-    fontSize: false
-  },
-  plugins: [
-    require("@tailwindcss/ui"),
-    plugin(function({ addUtilities, theme }) {
-      const fontSizes = theme("fontSize", {});
-
-      console.log(fontSizes);
-      Object.keys(fontSizes).forEach(key => {
-        let fontSize = fontSizes[key];
-        let pixels = +fontSize.replace("rem", "") * 16;
-        let tracking = -0.0223 + 0.185 * Math.exp(-0.1745 * pixels);
-
-        addUtilities(
-          {
-            [`.text-${key}`]: {
-              "font-size": fontSize,
-              "letter-spacing": `${tracking}rem`
-            }
-          },
-          ["responsive"]
-        );
-      });
-    })
-  ]
-};
-
-
- -->
-
-<div class="p-6">
-  <p class="mt-4 text-xs">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-sm">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-base">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-lg">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-2xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-3xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-4xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-5xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
-
-  <p class="mt-4 text-6xl">
-    Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
-  </p>
+<div class="flex justify-center pt-8">
+  <span class="relative z-0 inline-flex rounded-md shadow-sm">
+    <button
+      type="button"
+      class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+    >
+      Years
+    </button>
+    <button
+      type="button"
+      class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+    >
+      Months
+    </button>
+    <button
+      type="button"
+      class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-500 focus-visible:z-10 focus:outline-none focus-visible:border-blue-300 focus-visible:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
+    >
+      Days
+    </button>
+  </span>
 </div>

@@ -7,7 +7,7 @@ export default class ApplicationController extends Controller {
   @service router;
   @tracked sidebarIsOpen;
 
-  exercisesCount = 14;
+  exercisesCount = 13;
 
   get currentExercise() {
     let slug = this.router.currentRoute.parent.params.exercise_slug;
