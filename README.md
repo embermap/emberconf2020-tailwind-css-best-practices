@@ -4,15 +4,15 @@ Welcome!
 
 You can view the training on YouTube:
 
-youtube.com
+[→ View the training on YouTube](https://www.youtube.com/watch?v=eTdYzNMPn1o)
 
-Follow along using the instruactions below.
+Follow along using the instructions below.
 
 ## Getting help
 
 If you have any questions,
 
-- Ask us (@samselikoff or @ryanto) in the `#topic-media` channel in the Ember Community Discord
+- DM us (@samselikoff or @ryanto) in the Ember Community Discord
 - Email us at hello@embermap.com
 
 ## Running the training app on your computer
