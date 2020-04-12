@@ -56,7 +56,7 @@ Padding trick for fixed aspect ratio.
 
 How to think about abstracting + sharing? Might reach for @apply.
 
-Problem is you still have to duplicate html structure. Need a wrapper + child. Other problme is you have to go to css file and break html-first workflow.
+Problem is, you still have to duplicate html structure. You need a wrapper + a child. Another problem is that you have to go to the css file and break html-first workflow.
 
 Instead, use components.
 
